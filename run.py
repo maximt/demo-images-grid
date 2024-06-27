@@ -28,6 +28,12 @@ def get_image_size(image_path: str) -> tuple[int, int]:
     return width, height
 
 
+def get_grid_size(files_count: int) -> tuple[int, int]:
+    tiles_x = math.ceil(math.sqrt(files_count))
+    tiles_y = math.ceil(files_count / tiles_x)
+    return tiles_x, tiles_y
+
+
 def get_tile_size(files: list[str]) -> tuple[int, int]:
     max_width = 0
     max_height = 0
@@ -47,9 +53,7 @@ def draw_tile(canvas: Image, image_path: str, x: int, y: int):
 
 def draw_mosaic(files: list[str], output_file: str = 'output.tiff'):
     tile_width, tile_height = get_tile_size(files)
-
-    tiles_x = math.ceil(math.sqrt(len(files)))  # количество картинок в строке
-    tiles_y = (len(files) // tiles_x) + 1  # количество строк
+    tiles_x, tiles_y = get_grid_size(len(files))
 
     image_width = (tile_width + IMAGE_PADDING_PX * 2) * tiles_x
     image_height = (tile_height + IMAGE_PADDING_PX * 2) * tiles_y
