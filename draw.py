@@ -1,6 +1,6 @@
 from PIL import Image
 
-from grid import get_tile_size, get_grid_size
+from .grid import get_tile_size, get_grid_size
 
 
 IMAGE_PAD_PX = 10

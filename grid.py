@@ -1,6 +1,6 @@
 import math
 
-from files import get_image_size
+from .files import get_image_size
 
 
 def get_tile_size(files: list[str]) -> tuple[int, int]:

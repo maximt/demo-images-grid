@@ -1,5 +1,6 @@
 import pytest
-from ..run import get_grid_size
+
+from ..grid import get_grid_size
 
 
 @pytest.mark.parametrize("files_count, expected", [
