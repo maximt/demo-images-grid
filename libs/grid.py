@@ -15,5 +15,5 @@ def get_tile_size(files: list[str]) -> tuple[int, int]:
 
 def get_grid_size(files_count: int) -> tuple[int, int]:
     tiles_x = math.ceil(math.sqrt(files_count))
-    tiles_y = math.ceil(files_count / tiles_x)
+    tiles_y = math.ceil(files_count / tiles_x) if tiles_x > 0 else 0
     return tiles_x, tiles_y

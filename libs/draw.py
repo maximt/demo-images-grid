@@ -39,7 +39,14 @@ def draw_tiles(canvas: Image.Image, files: list[str],
 
 
 def draw_big_image(files: list[str], output_file: str = 'output.tiff'):
+    if not files:
+        raise ValueError('Input files are required')
+
     tile_size = get_tile_size(files)
+
+    if tile_size[X] == 0 or tile_size[Y] == 0:
+        raise ValueError('Tile size is zero')
+
     grid_size = get_grid_size(len(files))
 
     canvas_size = \
