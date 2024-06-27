@@ -59,7 +59,6 @@ def draw_grid(files: list[str], output_file: str = 'output.tiff'):
         (tile_width + IMAGE_PAD_PX * 2) * tiles_x, \
         (tile_height + IMAGE_PAD_PX * 2) * tiles_y
 
-    canvas_size = (image_width, image_height)
     canvas = Image.new('RGB', canvas_size, (255, 255, 255))
 
     tile_x = 0
