@@ -1,7 +1,7 @@
 from PIL import Image
 
 from files import get_all_files
-from draw import draw_grid
+from draw import draw_big_image
 
 
 def run():
@@ -13,7 +13,7 @@ def run():
     ]
 
     files = get_all_files(dirs)
-    draw_grid(files, '../output.tiff')
+    draw_big_image(files, '../output.tiff')
 
 
 if __name__ == "__main__":
