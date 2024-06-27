@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "src"
+name = "imagesgrid"
 version = "0.1.0"
 description = ""
 authors = ["maximt <vbmaxim@gmail.com>"]

@@ -1,7 +1,7 @@
 from PIL import Image
 
-from files import get_all_files
-from draw import draw_big_image
+from libs.files import get_all_files
+from libs.draw import draw_big_image
 
 
 def run():

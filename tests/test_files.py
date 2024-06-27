@@ -1,7 +1,7 @@
 import pytest
 from PIL import Image
 
-from ..files import get_image_size, get_dir_files, get_all_files
+from ..libs.files import get_image_size, get_dir_files, get_all_files
 
 
 def create_image(path, size):
@@ -62,7 +62,7 @@ def test_get_all_files(setup_images, expected_files):
     ]
 
     files = get_all_files(dirs)
-    
+
     assert set(files) == set(expected_files_)
 
 
