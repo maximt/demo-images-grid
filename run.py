@@ -4,7 +4,7 @@ from PIL import Image
 
 
 ALLOW_IMAGE_EXT = ['*.png', '*.jpg', '*.jpeg', '*.gif']
-IMAGE_PADDING_PX = 10
+IMAGE_PAD_PX = 10
 
 
 def get_dir_files(dir_path: str, ext: str) -> list[str]:
@@ -45,8 +45,8 @@ def get_tile_size(files: list[str]) -> tuple[int, int]:
 
 
 def draw_tile(canvas: Image, image_path: str, x: int, y: int):
-    img_x = x + IMAGE_PADDING_PX
-    img_y = y + IMAGE_PADDING_PX
+    img_x = x + IMAGE_PAD_PX
+    img_y = y + IMAGE_PAD_PX
     image = Image.open(image_path)
     canvas.paste(image, (img_x, img_y))
 
@@ -55,8 +55,9 @@ def draw_mosaic(files: list[str], output_file: str = 'output.tiff'):
     tile_width, tile_height = get_tile_size(files)
     tiles_x, tiles_y = get_grid_size(len(files))
 
-    image_width = (tile_width + IMAGE_PADDING_PX * 2) * tiles_x
-    image_height = (tile_height + IMAGE_PADDING_PX * 2) * tiles_y
+    canvas_size = \
+        (tile_width + IMAGE_PAD_PX * 2) * tiles_x, \
+        (tile_height + IMAGE_PAD_PX * 2) * tiles_y
 
     canvas_size = (image_width, image_height)
     canvas = Image.new('RGB', canvas_size, (255, 255, 255))
@@ -64,8 +65,8 @@ def draw_mosaic(files: list[str], output_file: str = 'output.tiff'):
     tile_x = 0
     tile_y = 0
     for file in files:
-        x = tile_x * (tile_width + IMAGE_PADDING_PX * 2)
-        y = tile_y * (tile_height + IMAGE_PADDING_PX * 2)
+        x = tile_x * (tile_width + IMAGE_PAD_PX * 2)
+        y = tile_y * (tile_height + IMAGE_PAD_PX * 2)
 
         draw_tile(canvas, file, x, y)
 
