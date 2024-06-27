@@ -23,3 +23,17 @@ def get_all_files(dirs: list[str]) -> list[str]:
 def get_image_size(image_path: str) -> tuple[int, int]:
     with Image.open(image_path) as img:
         return img.size
+
+
+def is_valid_image(image_path: str) -> bool:
+    try:
+        with Image.open(image_path) as img:
+            img.verify()
+        return True
+    except Exception as e:
+        print('Invalid image: ', image_path)
+        return False
+
+
+def filter_valid_images(files: list[str]) -> list[str]:
+    return [file for file in files if is_valid_image(file)]
