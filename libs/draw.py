@@ -8,10 +8,16 @@ X = 0
 Y = 1
 
 
-def draw_tile(canvas: Image, image: Image, x: int, y: int):
-    img_x = x + IMAGE_PAD_PX
-    img_y = y + IMAGE_PAD_PX
-    canvas.paste(image, (img_x, img_y))
+def draw_tile(canvas: Image, image: Image, pos: tuple[int, int], tile_size: tuple[int, int]):
+    # place image to center of tile
+    img_size = image.size
+    offset = \
+        (tile_size[X] - img_size[X]) // 2, \
+        (tile_size[Y] - img_size[Y]) // 2
+    pos_ajusted = \
+        pos[X] + offset[X] + IMAGE_PAD_PX, \
+        pos[Y] + offset[Y] + IMAGE_PAD_PX
+    canvas.paste(image, pos_ajusted)
 
 
 def draw_tiles(canvas: Image, files: list[str],
@@ -24,7 +30,7 @@ def draw_tiles(canvas: Image, files: list[str],
             tile_y * (tile_size[Y] + IMAGE_PAD_PX * 2)
 
         with Image.open(file) as image:
-            draw_tile(canvas, image, pos[X], pos[Y])
+            draw_tile(canvas, image, pos, tile_size)
 
         tile_x += 1
         if tile_x >= grid_size[0]:
