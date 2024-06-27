@@ -2,7 +2,7 @@ from pathlib import Path
 from PIL import Image
 
 
-ALLOW_IMAGE_EXT = ['*.png', '*.jpg', '*.jpeg', '*.gif']
+ALLOW_IMAGE_EXT = ['*.png', '*.jpg', '*.jpeg', '*.gif', '*.bmp']
 
 
 def get_dir_files(dir_path: str, ext: str) -> list[str]:
