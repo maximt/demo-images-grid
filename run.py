@@ -1,5 +1,4 @@
 import argparse
-from PIL import Image
 
 from libs.files import get_all_files, filter_valid_images
 from libs.draw import draw_big_image
