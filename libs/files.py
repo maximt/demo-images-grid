@@ -22,5 +22,4 @@ def get_all_files(dirs: list[str]) -> list[str]:
 
 def get_image_size(image_path: str) -> tuple[int, int]:
     with Image.open(image_path) as img:
-        width, height = img.size
-    return width, height
+        return img.size
