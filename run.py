@@ -51,7 +51,7 @@ def draw_tile(canvas: Image, image_path: str, x: int, y: int):
     canvas.paste(image, (img_x, img_y))
 
 
-def draw_mosaic(files: list[str], output_file: str = 'output.tiff'):
+def draw_grid(files: list[str], output_file: str = 'output.tiff'):
     tile_width, tile_height = get_tile_size(files)
     tiles_x, tiles_y = get_grid_size(len(files))
 
@@ -87,7 +87,7 @@ def run():
     ]
 
     files = get_all_files(dirs)
-    draw_mosaic(files, 'output.tiff')
+    draw_grid(files, '../output.tiff')
 
 
 
