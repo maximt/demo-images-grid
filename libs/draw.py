@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, ImageFile
 
 from .grid import get_tile_size, get_grid_size
 
@@ -8,7 +8,7 @@ X = 0
 Y = 1
 
 
-def draw_tile(canvas: Image, image: Image, pos: tuple[int, int], tile_size: tuple[int, int]):
+def draw_tile(canvas: Image.Image, image: ImageFile.ImageFile, pos: tuple[int, int], tile_size: tuple[int, int]):
     # place image to center of tile
     img_size = image.size
     offset = \
@@ -20,7 +20,7 @@ def draw_tile(canvas: Image, image: Image, pos: tuple[int, int], tile_size: tupl
     canvas.paste(image, pos_ajusted)
 
 
-def draw_tiles(canvas: Image, files: list[str],
+def draw_tiles(canvas: Image.Image, files: list[str],
                tile_size: tuple[int, int], grid_size: tuple[int, int]):
     tile_x = 0
     tile_y = 0
