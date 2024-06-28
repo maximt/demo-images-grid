@@ -1,4 +1,5 @@
-install
+install:
+
     poetry install
 
 run:
